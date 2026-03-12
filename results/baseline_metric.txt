@@ -1,0 +1,14 @@
+Model: TF-IDF + SVM
+Dataset: IFND (Indian Fake News Dataset)
+
+Accuracy: 0.9548
+
+Fake News
+Precision: 0.96
+Recall: 0.90
+F1-score: 0.93
+
+Real News
+Precision: 0.95
+Recall: 0.98
+F1-score: 0.97
