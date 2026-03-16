@@ -6,7 +6,7 @@ df = df[["Statement","Label"]]
 
 df.columns = ["text","label"]
 
-df["label"] = df["label"].apply(lambda x: 1 if x == "TRUE" else 0)
+df["label"] = df["label"].apply(lambda x: 1 if x == "TRUE" else 0)  
 
 df.to_csv("data/processed/indian_news_dataset.csv", index=False)
 

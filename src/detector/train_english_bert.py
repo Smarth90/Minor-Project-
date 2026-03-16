@@ -24,7 +24,7 @@ def tokenize(example):
     return tokenizer(example["text"], trucation = True, padding = "max_length")
 train_dataset = train_dataset.map(tokenize, batched= True)
 test_dataset = test_dataset.map(tokenize, batched= True)
-
+test_dataset.to_csv("data/processed/english_test.csv", index=False)
 model = AutoModelForSequenceClassification.from_pretrained(
     model_name,
     num_labels = 2

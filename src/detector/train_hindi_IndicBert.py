@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from datasets import Dataset
-from transformers import AutoTokenizer,AutoModelForSequenceClassification
+from transformers import AutoTokenizer,AutoModelForSequenceClassification, AutoModel
 from transformers import TrainingArguments, Trainer
 
 df = pd.read_csv("data/processed/hindi_dataset.csv")
@@ -17,7 +17,7 @@ train_df, test_df = train_test_split(df,test_size = 0.2, random_state= 42, strat
 train_dataset = Dataset.from_pandas(train_df)
 test_dataset = Dataset.from_pandas(test_df)
 
-model_name = "ai4bharat/indic-bert"
+model_name = AutoModel.from_pretrained("ai4bharat/indic-bert", dtype="auto")
 
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
@@ -33,7 +33,7 @@ def tokenize(example):
 train_dataset = train_dataset.map(tokenize, batched=True)
 test_dataset = test_dataset.map(tokenize, batched=True)
 
-
+test_dataset.to_csv("data/processed/hindi_test.csv")
 model = AutoModelForSequenceClassification.from_pretrained(
     model_name,
     num_labels=2
