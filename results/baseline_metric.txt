@@ -35,3 +35,21 @@ Real News
 Precision: 0.87
 Recall: 0.89
 F1-score: 0.88
+
+---------------------------
+Experiment
+language: English
+Model: RoBERTa
+Dataset(Test): english_test.csv(subset of ISOT Fake news detection dataset) 
+
+Accuracy: 0.96
+
+Fake News
+Precision: 0.97
+Recall: 0.94
+F1-score: 0.96
+
+Real News
+Precision: 0.95
+Recall: 0.97
+F1-score: 0.96
